@@ -112,7 +112,8 @@ public class GeneratePresetImpl implements GeneratePreset {
     private Army buildArmy(List<Rookie> assaultGroup) {
         List<Unit> armyUnits = new ArrayList<>();
         Map<String, Boolean> hashPositions = new HashMap<>();
-        for (Rookie rookie : assaultGroup) {
+        for (int i = 0; i < assaultGroup.size(); i++) {
+            Rookie rookie = assaultGroup.get(i);
             int maxAttempt = 1000;
             while (--maxAttempt >= 0) {
                 int xCoord = (int) (Math.random() * 3);
@@ -121,7 +122,7 @@ public class GeneratePresetImpl implements GeneratePreset {
                 if (hashPositions.containsKey(hash)) {
                     continue;
                 }
-                armyUnits.add(rookie.toUnit(Integer.valueOf(hash), xCoord, yCoord));
+                armyUnits.add(rookie.toUnit(i, xCoord, yCoord));
                 hashPositions.put(hash, true);
                 break;
             }
