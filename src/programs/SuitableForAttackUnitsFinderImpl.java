@@ -36,7 +36,7 @@ public class SuitableForAttackUnitsFinderImpl implements SuitableForAttackUnitsF
             }
         }
 
-        // Перебирать будем поколоночно, от тыльной колонки к фронтовой
+        // Перебирать будем по колонкам, от тыльной колонки к фронтовой
         for (int i = 0; i < 3; i++) {
             for (Unit unit : columns.get(i)) {
 
