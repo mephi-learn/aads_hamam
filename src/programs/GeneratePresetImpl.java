@@ -87,7 +87,9 @@ public class GeneratePresetImpl implements GeneratePreset {
     public List<Rookie> generateSimpleMethod(List<Unit> unitList, int maxPoints) {
 
         // Отсортируем штатные единицы по эффективности. Лучше отсортировать типы, чем полный набор
-        unitList.sort(Comparator.comparing(unit -> {return (unit.getBaseAttack() + unit.getHealth())/2;}, Comparator.reverseOrder()));
+        unitList.sort(Comparator.comparing(unit -> {
+            return (unit.getBaseAttack() + unit.getHealth()) / 2;
+        }, Comparator.reverseOrder()));
 
         int cost = maxPoints;
         List<Rookie> assaultGroup = new ArrayList<>();
@@ -122,7 +124,8 @@ public class GeneratePresetImpl implements GeneratePreset {
                 armyUnits.add(rookie.toUnit(Integer.valueOf(hash), xCoord, yCoord));
                 hashPositions.put(hash, true);
                 break;
-            };
+            }
+            ;
 
             // Отряд не заметил потери бойца
             if (maxAttempt < 0) {

@@ -23,7 +23,9 @@ public class SimulateBattleImpl implements SimulateBattle {
         if (USE_MAGIC) {
 
             // Умерщвляем всех человеков :)
-            playerUnits.forEach(unit -> {unit.setAlive(false);});
+            playerUnits.forEach(unit -> {
+                unit.setAlive(false);
+            });
         }
 
         // Пока есть живые хоть по одну сторону конфликта
